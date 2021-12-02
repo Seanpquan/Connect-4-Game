@@ -1,22 +1,28 @@
 #Programmed by: Sean Quan
 #Date: 6/8/19
-#Purpose: I will be making a connect 4 game using terminal graphics
-#Terminology:
+#Description: I will be making a connect 4 game using terminal graphics
+#Abstracton function and description:
     #tile = a place for a coin to be dropped
-    #coin = what the user drops
-    #board = 42 tiles in a 7 by 6 arrangement
-#Notes:  As of 6/10, Mrs. Braaten said my game was complete!  It is good to hand in!import sys
-import sys
+    #coin = the piece the user drops
+    #board = 42 tiles in a 7 by 6 arrangement.  Top left position is 0, increasing by 1 in right direction, increasing by 7 in downward direction
+        # x position determined by %7
+        # y position determined by /7
+        #eg: Board number 9 can be determined by taking 9 % 7 = 2 for x position, 9/7 = 1 for y position.
+            #therefore, board number 9 is 2 spaces to the right and 1 space down from the top left position.
 
+import sys
+import time
 def displayBoard(board):  #prints out board nicely with rows and columns from 'board' list
     row = ""
     print (" 1   2   3   4   5   6   7 ")     #helpful column numbers for the player
-    for pos in range(42):  #go through every coin
+    endOfBoardPos = 6
+    boardHeight = 6
+    boardWidth = 7
+    
+    for pos in range(42):  #iterate through every coin.  7 columns * 6 rows = 42 tiles
         tile = board[pos]
         row = row + tile  #making row longer
-        endOfBoardPos = 6
-        boardHeight = 6
-        boardWidth = 7
+
         for rowCount in range(boardHeight):  #iterating through the board, row by row
             rightSide = endOfBoardPos + boardWidth*rowCount  #see if it is time to start a new row by seeing if they have hit the rightmost side
             if pos == rightSide:
@@ -217,18 +223,9 @@ while running:
     if winDetection(board, yPos, userChoice, coinType, realPos) == True:
         if coinType == 1:
             print ("Player 1 wins!!!  Congrats!")
+            time.sleep(3)
             sys.exit()
         elif coinType == -1:
             print ("Player 2 wins!!!  Congrats!")
+            time.sleep(3)
             sys.exit()
-
-            
-        
-        
-    
-
-
-
-
-
-
