@@ -1,6 +1,6 @@
 #Programmed by: Sean Quan
 #Date: 6/8/19
-#Description: I will be making a connect 4 game using terminal graphics
+#Description: A recreation of the popular board game, Connect-4, using python and terminal graphics
 #Abstracton function and description:
     #tile = a place for a coin to be dropped
     #coin = the piece the user drops
